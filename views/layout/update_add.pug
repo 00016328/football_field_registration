@@ -1,0 +1,32 @@
+include ../head.pug
+body
+    .container.add-width
+        h1.main-title Add/Update Event
+        form(action="/submit-event-form" method="POST")
+            .form-field
+                label(for="registName" class="form-label") Name to Register
+                input(type="text" class="form-control" id="registName" name="registName" required)
+            .form-field
+                label(for="contactPhone" class="form-label") Contact Phone
+                input(type="tel" class="form-control" id="contactPhone" name="contactPhone" required)
+            .form-field
+                label(for="players-number" class="form-label") Quantity of Players
+                input(type="number" class="form-control" id="players-number" name="players-number" min="1" max="50" required)
+            
+            .form-field
+                label(for="duration-time" class="form-label") Playing Duration Time
+                input(type="time" class="form-control" id="duration-time" name="duration-time" value="00:30" min="00:30" max="05:00" style="-webkit-appearance: none;" required)
+            .form-field
+                label(for="datetime" class="form-label") Regist Date/Time
+                input(type="datetime-local" class="form-control" id="datetime" name="datetime" required)
+            button(type="submit" class="btn-add") Add/Edit
+
+    //- script.
+    //-     const picker = new tempusDominus.TempusDominus(document.getElementById('datetimepicker1'),{
+    //-         localization: {
+    //-             'locale': 'fr'
+    //-         }
+    //-     });
+    //-     picker.dates.formatInput = function(date) {
+    //-         return moment(date).format('DD/MM/YYYY HH:mm')
+    //-     }

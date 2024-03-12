@@ -1,0 +1,76 @@
+/* --- defoult settings --- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    max-width: 1130px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.container.add-width {
+    max-width: 530px;
+}
+.main-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* --- table style --- */
+.clients-table {
+    width: 100%;
+}
+.clients-table tr {
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 3fr 3fr 3fr 3fr;
+}
+.clients-table th,
+.clients-table td {
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid black;
+    margin-bottom: 2px;
+    /* background: green; */
+    /* color: white; */
+}
+.clients-table th:last-child,
+.clients-table td:last-child {
+    border: none;
+}
+/* buttons */
+.btn-delete,
+.btn-edit,
+.btn-add {
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+}
+.btn-edit {
+    border: 1px solid blue;
+    color: blue;
+    margin-right: 10px;
+}
+.btn-delete {
+    border: 1px solid red;
+    color: red;
+}
+
+/* --- form style --- */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.form-field {
+    margin-bottom: 15px;
+}
+.form-control {
+    padding: 5px 10px;
+    width: 100%;
+}
+.btn-add {
+    border: 1px solid green;
+    color: green;
+    margin-top: 15px;
+}
