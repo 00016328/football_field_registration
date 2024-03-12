@@ -13,23 +13,31 @@ body
                 th Date
                 th
             tbody
-            tr
-                td 1
-                td Aziz
-                td +998999999999
-                td 12
-                td 2:00
-                td 2024-03-14 20:00
-                td
-                button.btn-edit Edit
-                button.btn-delete Delete
-            tr
-                td 2
-                td Azamat
-                td +998999999999
-                td 8
-                td 1:30
-                td 2024-03-28 20:00
-                td
-                button.btn-edit Edit
-                button.btn-delete Delete
+script.
+    document.addEventListener('DOMContentLoaded', function() {
+        axios.get('/api/field/')
+            .then(function(response) {
+                const fields = response.data;
+                const tableBody = document.querySelector('table tbody');
+                fields.forEach(t => {
+                    const row = document.createElement('tr');
+                    const field = t.field
+                    row.innerHTML = `
+                        <td>${t.id}</td>
+                        <td>${field.registName}</td>
+                        <td>${field.contactPhone}</td>
+                        <td>${field.playersNumber}</td>
+                        <td>${field.durationTime}</td>
+                        <td>${field.datetime}</td>
+                        <td>
+                            <button class="btn-edit">Edit</button>
+                            <button class="btn-delete">Delete</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    });
