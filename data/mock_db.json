@@ -10,13 +10,13 @@
         }
     },
     {
-        "id": "q5gO",
+        "id": "J9PS",
         "field": {
-            "registName": "Azamat",
-            "contactPhone": "+998999999999",
-            "playersNumber": "12",
+            "registName": "test",
+            "contactPhone": "+998444444445",
+            "playersNumber": "9",
             "durationTime": "01:30",
-            "datetime": "14/03/2024 20:00"
+            "datetime": "2024-03-15T02:39"
         }
     }
 ]

@@ -1,6 +1,6 @@
 const express = require('express');
 const { validationResult } = require('express-validator');
-const { addFieldValidation, deleteFieldValidation } = require('../../../validators/field');
+const { addFieldValidation, deleteFieldValidation, updateFieldValidation } = require('../../../validators/field');
 
 const router = express.Router();
 const field_controller = require('../../../controllers/api/field');
@@ -18,6 +18,15 @@ router.post('/', addFieldValidation(), (req, res)=>{
     }
 
     field_controller.create(req, res)
+})
+
+router.put('/:id', updateFieldValidation(), (req, res)=>{
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  field_controller.update(req, res)
 })
 
 router.delete('/:id', deleteFieldValidation(), (req, res, next)=>{

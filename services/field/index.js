@@ -8,7 +8,7 @@ const field_service = {
         return fields
     },
     getById(id) {
-        return fields.find(t => t.id == id)
+        return fields.find(g => g.id == id)
     },
     create(req, res) {
         let new_id = genRandId(4)
@@ -26,8 +26,21 @@ const field_service = {
         
         return new_field
     },
+    update(id, updateData){
+        const fieldIndex = fields.findIndex(u => u.id == id)
+
+        if (fieldIndex === -1) {
+            return null
+        }
+
+        fields[fieldIndex].field = { ...fields[fieldIndex].field, ...updateData }
+
+        writeToFile(fields)
+
+        return fields[fieldIndex]
+    },
     delete(id) {
-        const index = fields.findIndex(u => u.id == id)
+        const index = fields.findIndex(d => d.id == id)
         fields.splice(index, 1)    
         writeToFile(fields)
     }

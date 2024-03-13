@@ -2,6 +2,8 @@ include ../head.pug
 body
     .container
         h1.main-title List of clients registration
+        //- button.btn-add(href='/add') Register the field
+        a.btn-add(href='/add', role='button') Register the field
         table.clients-table
             thead
             tr
@@ -15,43 +17,42 @@ body
             tbody
 script.
     document.addEventListener('DOMContentLoaded', function() {
-        axios.get('/api/field/')
-            .then(function(response) {
-                const fields = response.data;
-                const tableBody = document.querySelector('table tbody');
-                fields.forEach(t => {
-                    const row = document.createElement('tr');
-                    const field = t.field
-                    row.innerHTML = `
-                        <td>${t.id}</td>
-                        <td>${field.registName}</td>
-                        <td>${field.contactPhone}</td>
-                        <td>${field.playersNumber}</td>
-                        <td>${field.durationTime}</td>
-                        <td>${field.datetime}</td>
-                        <td>
-                            <button class="btn-edit">Edit</button>
-                            <button class="btn-delete" data-id="${t.id}">Delete</button>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            })
-            .catch(function(error) {
-                console.log(error);
+        axios.get('/api/field/').then(function(response) {
+            const fields = response.data;
+            const tableBody = document.querySelector('table tbody');
+            fields.forEach(t => {
+                const row = document.createElement('tr');
+                const field = t.field
+                row.innerHTML = `
+                    <td>${t.id}</td>
+                    <td>${field.registName}</td>
+                    <td>${field.contactPhone}</td>
+                    <td>${field.playersNumber}</td>
+                    <td>${field.durationTime}</td>
+                    <td>${field.datetime}</td>
+                    <td>
+                        <button class="btn-edit" data-id="${t.id}" onclick="window.location.href='/update/${t.id}'">Edit</button>
+                        <button class="btn-delete" data-id="${t.id}">Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
             });
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 
-            // Functionality of deleting button
-            document.addEventListener('click', function(event) {
-                if (event.target && event.target.classList.contains('btn-delete')) {
-                    const fieldId = event.target.getAttribute('data-id');
-                    axios.delete(`/api/field/${fieldId}`).then(function(response) {
-                        console.log('Deleted successfully', response);
-                        location.href = '/'
-                    })
-                    .catch(function(error) {
-                        console.log('Error in deleting', error);
-                    });
-                }
-            });
+        // Functionality of deleting button
+        document.addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('btn-delete')) {
+                const fieldId = event.target.getAttribute('data-id');
+                axios.delete(`/api/field/${fieldId}`).then(function(response) {
+                    alert('Deleted successfully: ' + response);
+                    location.href = '/'
+                })
+                .catch(function(error) {
+                    alert('Error in deleting: ' + error);
+                });
+            }
+        });
     });

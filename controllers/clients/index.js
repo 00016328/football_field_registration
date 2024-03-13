@@ -1,12 +1,15 @@
+const field_service = require('../../services/field')
+
 const clients_controller = {
     index: async (req, res) =>{
         res.render('layout');
     },
     add: async (req, res) =>{
-        res.render('layout/update_add');
+        res.render('layout/update_add', { mode: 'Add' });
     },
     update: async (req, res) =>{
-        res.render('layout/update_add');
+        const eventData = await field_service.getById(req.params.id);
+        res.render('layout/update_add', { mode: 'Update', eventData: eventData });
     }
 };
   

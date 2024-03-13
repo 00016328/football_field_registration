@@ -11,6 +11,15 @@ const field_controller = {
             field_service.create(req, res)
         )
     },
+    update(req, res) {
+        const field = field_service.update(req.params.id, req.body)
+        
+        if (field) {
+            res.json(field)
+        } else {
+            res.status(404).send('Registered field not found')
+        }
+    },
     delete(req, res) {
         const field = field_service.getById(req.params.id)
         

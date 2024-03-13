@@ -42,7 +42,8 @@
 /* buttons */
 .btn-delete,
 .btn-edit,
-.btn-add {
+.btn-add,
+.btn-back {
     padding: 5px 10px;
     border-radius: 6px;
     background: transparent;
@@ -57,6 +58,20 @@
     border: 1px solid red;
     color: red;
 }
+.btn-add {
+    border: 1px solid green;
+    color: green;
+    margin: 15px 0;
+}
+.btn-back {
+    background-color: black;
+    color: white;
+    margin: 15px 0 15px 10px;
+}
+a.btn-add {
+    display: inline-block;
+    text-decoration: none;
+}
 
 /* --- form style --- */
 input[type="time"]::-webkit-calendar-picker-indicator {
@@ -68,9 +83,4 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .form-control {
     padding: 5px 10px;
     width: 100%;
-}
-.btn-add {
-    border: 1px solid green;
-    color: green;
-    margin-top: 15px;
 }
