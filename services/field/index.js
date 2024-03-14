@@ -1,6 +1,5 @@
 const fs = require('fs')
-// access from global mock db file
-const fields = require(global.mock_db)
+const fields = require(global.mock_db) // access from global mock db file
 
 // adding methods to call
 const field_service = {

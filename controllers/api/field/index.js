@@ -1,5 +1,4 @@
-// importing service classes
-const field_service = require('../../../services/field/')
+const field_service = require('../../../services/field/'); // importing service classes
 
 // adding methods to call
 const field_controller = {

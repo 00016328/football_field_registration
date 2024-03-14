@@ -1,11 +1,8 @@
-// express web app instance
-const express = require('express')
+const express = require('express'); // express web app instance
 
-// parse request body to json
-const body_parser = require('body-parser')
+const body_parser = require('body-parser'); // parse request body to json
 
-// for File IO
-const path = require('path')
+const path = require('path'); // for File IO
 
 // make mock database (raw .json file) available globally in app
 global.mock_db = path.join(__dirname, './data/mock_db.json');
@@ -15,11 +12,10 @@ const api_route = require('./routes/api'); // for api routing
 
 const app = express();
 
-// setting the view engine for field routes
-app.set('view engine', 'pug');
+app.set('view engine', 'pug'); // setting the view engine for field routes
 
-app.use('/css', express.static('public/styles'))
-app.use('/js', express.static('public/js'))
+ // cutting the path to public/styles folder for style.css file
+app.use('/css', express.static('public/styles'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
