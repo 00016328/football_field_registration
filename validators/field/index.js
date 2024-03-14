@@ -18,7 +18,7 @@ const addFieldValidation = () => {
     body('datetime')
       .notEmpty().withMessage('Date time should not be empty')
       .matches(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/)
-        .withMessage('Invalid date and time format. Please use "DD/MM/YYYY HH:mm" format'),    
+        .withMessage('Invalid date and time format. Please use "YYY-MM-DD HH:mm" format'),    
   ];
 };
 
