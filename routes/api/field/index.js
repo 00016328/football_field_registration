@@ -5,7 +5,7 @@ const { addFieldValidation, deleteFieldValidation, updateFieldValidation } = req
 const router = express.Router();
 const field_controller = require('../../../controllers/api/field');
 
-// Define API routes
+// proccess of defining API routes
 router.get('/', (req, res)=>{
     field_controller.getAll(req, res);
 });

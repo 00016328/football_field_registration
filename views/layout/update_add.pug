@@ -21,16 +21,7 @@ body
         button(type="submit" class="btn-back" onclick="window.location.href='/'") Back to list
     
     script.
-        //- const format = 'DD/MM/YYYY HH:mm'
-        //- const picker = new tempusDominus.TempusDominus(document.getElementById('datetime'),{
-        //-     localization: {
-        //-         'locale': 'fr'
-        //-     }
-        //- })
-        //- picker.dates.formatInput = function(date) {
-        //-     return moment(date).format(format)
-        //- }
-
+        //- if the client press Edit button
         if ("#{mode}" === "Update") {
             const eventData = !{JSON.stringify(eventData || {})}.field;
             document.getElementById('registName').value = eventData.registName || '';
@@ -38,12 +29,8 @@ body
             document.getElementById('playersNumber').value = eventData.playersNumber || '';
             document.getElementById('durationTime').value = eventData.durationTime || '';
             document.getElementById('datetime').value = eventData.datetime || '';
-
-            //- picker.dates.setValue(
-            //-     new tempusDominus.DateTime(moment(eventData.datetime, format))
-            //- );
         }
-
+        //- functionality of submit button
         function submitForm() {
             const eventData = {
                 registName: document.getElementById('registName').value,

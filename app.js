@@ -15,7 +15,7 @@ const api_route = require('./routes/api'); // for api routing
 
 const app = express();
 
-// Set the view engine for field routes
+// setting the view engine for field routes
 app.set('view engine', 'pug');
 
 app.use('/css', express.static('public/styles'))

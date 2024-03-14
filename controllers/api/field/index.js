@@ -1,7 +1,7 @@
-// import specific service class
+// importing service classes
 const field_service = require('../../../services/field/')
 
-// mention the service's needed actions (methods)
+// adding methods to call
 const field_controller = {
     getAll(req, res) {
         res.json(field_service.getAll())

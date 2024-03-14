@@ -13,7 +13,8 @@
 .container.add-width {
     max-width: 530px;
 }
-.main-title {
+.main-title,
+.webtech-message {
     text-align: center;
     margin: 20px 0;
 }
@@ -25,19 +26,21 @@
 .clients-table tr {
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 3fr 3fr 3fr 3fr;
+    background-color: #008E08;
+    color: white;
+}
+.clients-table thead tr {
+    background-color: black;
+    color: white;
+}
+.clients-table tr:nth-child(even) {
+    background-color: #00A308;
 }
 .clients-table th,
 .clients-table td {
     text-align: center;
     padding: 5px 10px;
-    border: 1px solid black;
-    margin-bottom: 2px;
-    /* background: green; */
-    /* color: white; */
-}
-.clients-table th:last-child,
-.clients-table td:last-child {
-    border: none;
+    border: 1px solid white;
 }
 /* buttons */
 .btn-delete,
@@ -46,22 +49,25 @@
 .btn-back {
     padding: 5px 10px;
     border-radius: 6px;
-    background: transparent;
     cursor: pointer;
+    background-color: white;
+    border-color: white;
 }
 .btn-edit {
-    border: 1px solid blue;
     color: blue;
     margin-right: 10px;
 }
 .btn-delete {
-    border: 1px solid red;
     color: red;
 }
 .btn-add {
     border: 1px solid green;
     color: green;
     margin: 15px 0;
+}
+.btn-add:hover {
+    background-color: green;
+    color: white;
 }
 .btn-back {
     background-color: black;
@@ -71,6 +77,14 @@
 a.btn-add {
     display: inline-block;
     text-decoration: none;
+    font-size: 20px;
+    margin-top: 0;
+    background-color: blue;
+    color: white;
+}
+a.btn-add:hover {
+    background-color: black;
+    color: white;
 }
 
 /* --- form style --- */

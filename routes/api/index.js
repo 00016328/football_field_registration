@@ -3,6 +3,6 @@ const field_router = require('./field')
 
 const router = express.Router()
 
-// registering child routers
+// proccess of child routers' registation
 router.use('/field', field_router)
 module.exports = router;

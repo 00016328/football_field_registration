@@ -6,16 +6,18 @@ body
         a.btn-add(href='/add', role='button') Register the field
         table.clients-table
             thead
-            tr
-                th ID
-                th Name to register
-                th Contact phone
-                th Quantity of players
-                th Playing duration
-                th Date
-                th
+                tr
+                    th ID
+                    th Name to register
+                    th Contact phone
+                    th Quantity of players
+                    th Playing duration
+                    th Date
+                    th Update
             tbody
+        p.webtech-message This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service
 script.
+    //- dynamic table
     document.addEventListener('DOMContentLoaded', function() {
         axios.get('/api/field/').then(function(response) {
             const fields = response.data;

@@ -1,5 +1,7 @@
+// importing service classes
 const field_service = require('../../services/field')
 
+// controllers of clients from the website
 const clients_controller = {
     index: async (req, res) =>{
         res.render('layout');
